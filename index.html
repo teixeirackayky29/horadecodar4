@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        1
+        Crie um programa onde o usuário possa cadastrar estudantes sem limites, e, em seguida, Se o usuário digitar "PARE" o programa deve exibir a quantidade de estudantes cadastrados e a lista com cada um deles. 
+    </p>
+
+    <script>
+        let estudantes = []
+
+        let qtsEstudantes = 0
+
+        //Adiciona um novo estudante
+        function addEstudante(nome){
+            estudantes.push(nome)
+            qtsEstudantes++;
+        }
+
+        //exibi a lista de estudantes cadastrados
+        function exbListaEstudantes(){
+            console.log(`Quantidade de estudantes cadastrados: ${qtsEstudantes}`)
+            console.log("Lista de estudantes: ")
+            for(let i = 0; i < qtsEstudantes; i++){
+                console.log(`${i + 1} - ${estudantes[i]}`)
+            }
+        }
+
+        //loop  para adicionar varios estudantes, ate digitar PARE
+        while(true){
+            let nomeEstudante = prompt("Digite o nome do estudante (Pare para finalizar): ");
+
+            if (nomeEstudante.toUpperCase() === "PARE") {
+                break;
+            } else if (isNaN(nomeEstudante)) {
+                addEstudante(nomeEstudante);
+            } else {
+                console.error("Erro: O nome do estudante não pode conter números. Digite novamente.");
+            }
+        }
+
+        
+        exbListaEstudantes();
+    </script>
+</body>
+</html>
